@@ -14,3 +14,18 @@ curl -L https://github.com/dhiltgen/docker-machine-kvm/releases/download/v$KVM_D
 
 # Install minikube
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.5.0/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
+
+# install kubectl
+curl -sSL "http://storage.googleapis.com/kubernetes-release/release/v1.3.0/bin/linux/amd64/kubectl" > /usr/bin/kubectl
+chmod +x /usr/bin/kubectl
+
+# list networks
+virsh net-list
+
+# d.Memory = flags.Int("kvm-memory")
+# d.DiskSize = flags.Int("kvm-disk-size")
+# d.CPU = flags.Int("kvm-cpu-count")
+
+# Build machine
+# docker-machine create --driver kvm --kvm-network=docker-machines default
+docker-machine create --driver kvm default
